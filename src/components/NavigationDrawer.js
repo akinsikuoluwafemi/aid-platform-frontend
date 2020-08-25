@@ -23,12 +23,14 @@ const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
+    display: "flex"
+
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
       flexShrink: 0,
+
     },
   },
   appBar: {
@@ -47,6 +49,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    background: 'rgb(244,244,244)'
+
   },
   content: {
     flexGrow: 1,
@@ -102,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarText: {
     marginRight: "auto",
+    
   },
 }));
 
@@ -118,6 +123,10 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
+      <Typography variant="h6" style={{textAlign: 'center'}} >
+            Aid Platform
+      </Typography>
+
       <Divider />
 
       <List component="nav" aria-label="main mailbox folders">
@@ -165,7 +174,7 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap className={classes.appBarText}>
+          <Typography variant="h6" noWrap className={classes.appBarText} >
             Aid Platform
           </Typography>
 

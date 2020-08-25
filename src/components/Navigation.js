@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from "./Login";
+import SignUp from "./SignUp";
 import Home from '../pages/Home';
 
 export default function Navigation() {
@@ -8,7 +8,7 @@ export default function Navigation() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
                 
 
 
