@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
   },
 }));
 
@@ -66,23 +66,24 @@ function ResponsiveDrawer(props) {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <
       <Divider />
-      <List>
+      {/* <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
+      </List> */}
+      {/* <List>
+        <ListItemIcon >
+          <InboxIcon />
+          <ListItemText>Inbox</ListItemText>
+        </ListItemIcon>
+      </List> */}
+      <InboxIcon />
+      <Typography>Inbox</Typography>
     </div>
   );
 
@@ -101,7 +102,6 @@ function ResponsiveDrawer(props) {
             className={classes.menuButton}
           >
             <MenuIcon />
-            
           </IconButton>
           <Typography variant="h6" noWrap>
             Aid Platform
@@ -114,7 +114,7 @@ function ResponsiveDrawer(props) {
           <Drawer
             container={container}
             variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            anchor={theme.direction === "rtl" ? "right" : "left"}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{
@@ -139,14 +139,20 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
 
-        <div style={{background: 'red', height: '100vh'}}>
+      
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+
+          <div style={{ background: "red", height: "100vh" }}>
+          
           <p>Lorem</p>
-        </div>
+          
+
+          </div>
         
-      </main>
+        </main>
+      
     </div>
   );
 }
