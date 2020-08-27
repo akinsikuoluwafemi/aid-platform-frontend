@@ -78,12 +78,11 @@ function SignUp() {
   }
 
   const handleFile = (e) => {
+    
     setFile(e.target.files[0])
   }
 
-  const fileUploadHandler = () => {
-    console.log('uploaded')
-  };
+  const fileUploadHandler = () => {};
 
 
   return (
@@ -143,7 +142,6 @@ function SignUp() {
                 />
 
                 <TextField
-                  style={{ display: "none" }}
                   id="file"
                   name="file"
                   type="file"
@@ -163,7 +161,7 @@ function SignUp() {
                   onClick={fileUploadHandler}
                 >
                   Upload File
-                  {/* <input type="file" style={{ display: "none" }} /> */}
+                  <input type="file" style={{ display: "none" }} />
                 </Button>
                 <br />
 

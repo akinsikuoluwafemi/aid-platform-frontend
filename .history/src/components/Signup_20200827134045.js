@@ -78,6 +78,7 @@ function SignUp() {
   }
 
   const handleFile = (e) => {
+    
     setFile(e.target.files[0])
   }
 
@@ -143,7 +144,6 @@ function SignUp() {
                 />
 
                 <TextField
-                  style={{ display: "none" }}
                   id="file"
                   name="file"
                   type="file"
@@ -160,7 +160,7 @@ function SignUp() {
                   component="label"
                   // value={file}
                   // onChange={handleFile}
-                  onClick={fileUploadHandler}
+                  onClick={ fileUploadHandler}
                 >
                   Upload File
                   {/* <input type="file" style={{ display: "none" }} /> */}

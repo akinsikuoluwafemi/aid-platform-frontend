@@ -43,7 +43,7 @@ function SignUp() {
   const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [file, setFile] = useState(null)
+  const [file, setFile] = useState('')
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState({})
 
@@ -78,12 +78,10 @@ function SignUp() {
   }
 
   const handleFile = (e) => {
-    setFile(e.target.files[0])
+    // setFile(e.target.files)
+    
+    console.log(e.target.files[0])
   }
-
-  const fileUploadHandler = () => {
-    console.log('uploaded')
-  };
 
 
   return (
@@ -143,7 +141,6 @@ function SignUp() {
                 />
 
                 <TextField
-                  style={{ display: "none" }}
                   id="file"
                   name="file"
                   type="file"
@@ -155,17 +152,13 @@ function SignUp() {
                 />
 
                 <Button
-                  className={classes.button}
                   variant="contained"
-                  component="label"
-                  // value={file}
-                  // onChange={handleFile}
-                  onClick={fileUploadHandler}
+                  color="primary"
+                  className={classes.button}
+                  type="submit"
                 >
-                  Upload File
-                  {/* <input type="file" style={{ display: "none" }} /> */}
+                  
                 </Button>
-                <br />
 
                 <Button
                   variant="contained"

@@ -78,12 +78,13 @@ function SignUp() {
   }
 
   const handleFile = (e) => {
-    setFile(e.target.files[0])
+    
+    set(e.target.files[0])
   }
 
   const fileUploadHandler = () => {
-    console.log('uploaded')
-  };
+    
+  }
 
 
   return (
@@ -142,8 +143,7 @@ function SignUp() {
                   fullWidth
                 />
 
-                <TextField
-                  style={{ display: "none" }}
+                {/* <TextField
                   id="file"
                   name="file"
                   type="file"
@@ -152,7 +152,7 @@ function SignUp() {
                   value={file}
                   onChange={handleFile}
                   fullWidth
-                />
+                /> */}
 
                 <Button
                   className={classes.button}
@@ -163,7 +163,7 @@ function SignUp() {
                   onClick={fileUploadHandler}
                 >
                   Upload File
-                  {/* <input type="file" style={{ display: "none" }} /> */}
+                  <input type="file" style={{ display: "none" }} />
                 </Button>
                 <br />
 
