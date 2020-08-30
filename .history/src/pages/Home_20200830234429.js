@@ -30,7 +30,7 @@ function Home() {
   
   const [lat, setLat] = useState(null)
   const [lng, setLng] = useState(null)
-  const [request, setRequest] = useState(requestData);
+  const [request, setRequest] = useState(data);
 
   useEffect(() => {
     console.log(request)

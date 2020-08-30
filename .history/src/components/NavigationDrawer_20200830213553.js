@@ -126,6 +126,7 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
+      <p>yes</p>
       <div className={classes.toolbar} />
       <Typography variant="h6" style={{ textAlign: "center" }}>
         Aid Platform

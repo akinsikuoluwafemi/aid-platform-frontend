@@ -178,8 +178,8 @@ function ResponsiveDrawer(props) {
 
   return (
     <div className={classes.root}>
-
       <CssBaseline />
+      <p>yes</p>
 
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
@@ -246,7 +246,6 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-      
     </div>
   );
 }

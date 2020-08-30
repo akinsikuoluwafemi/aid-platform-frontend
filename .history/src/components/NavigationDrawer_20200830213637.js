@@ -170,6 +170,7 @@ function ResponsiveDrawer(props) {
           <ListItemText primary="Sign up" />
         </Link>
       </ListItem>
+      <AppBar/>
     </div>
   );
 

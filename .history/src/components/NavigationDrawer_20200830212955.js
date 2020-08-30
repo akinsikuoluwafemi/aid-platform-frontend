@@ -178,7 +178,6 @@ function ResponsiveDrawer(props) {
 
   return (
     <div className={classes.root}>
-
       <CssBaseline />
 
       <AppBar position="fixed" className={classes.appBar}>
@@ -192,7 +191,7 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap className={classes.appBarText}>
+          <Typography variant="h6" noWrap className={classes.appBarText} >
             Aid Platform
           </Typography>
 
@@ -246,7 +245,7 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-      
+      <p>yes</p>
     </div>
   );
 }

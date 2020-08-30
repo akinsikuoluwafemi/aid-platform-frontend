@@ -4,8 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import "../pages/Home.scss";
 import NavigationDrawer from "../components/NavigationDrawer";
-import { requestData } from "../data";
-
 
 const drawerWidth = 200;
 
@@ -30,34 +28,18 @@ function Home() {
   
   const [lat, setLat] = useState(null)
   const [lng, setLng] = useState(null)
-  const [request, setRequest] = useState(requestData);
+
 
   useEffect(() => {
-    console.log(request)
-    
-    getUserLocation()
-
-  }, []);
-
-  const getUserLocation = () => {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        let { latitude, longitude } = position.coords;
-
-        setLat(latitude);
-        setLng(longitude);
-        console.log(position);
+        let { latitude, longitude } = position.coords
+        console.log(lat)
       },
-      (error) => {
-        if (error.code === 1) {
-          // setLat(do something)
-          // setLng(do something)
-          console.log(error);
-        }
-      }
+      (error) => console.log(error)
     );
-  }
-  
+  }, []);
+
   const classes = useStyles();
 
   return (

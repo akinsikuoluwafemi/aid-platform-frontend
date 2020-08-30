@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import "../pages/Home.scss";
 import NavigationDrawer from "../components/NavigationDrawer";
-import { requestData } from "../data";
+import reata from '../data';
 
 
 const drawerWidth = 200;
