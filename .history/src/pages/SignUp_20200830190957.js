@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import '../pages/Home.scss';
-import NavigationDrawer from './NavigationDrawer';
+import NavigationDrawer from '../components/NavigationDrawer';
 import Grid from '@material-ui/core/Grid';
 import HelpLogo from '../images/helpp.jpeg';
 import TextField from '@material-ui/core/TextField';
@@ -165,6 +165,7 @@ function SignUp() {
                   Upload File
                   {/* <input type="file" style={{ display: "none" }} /> */}
                 </Button>
+                
                 <br />
 
                 <Button
@@ -184,6 +185,8 @@ function SignUp() {
     </div>
   );
 }
+
+// api key='AIzaSyBniFhD5gyPyOrEm212cVIAYVythPk2JcE'
 
 
 export default SignUp;
