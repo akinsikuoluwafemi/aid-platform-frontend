@@ -52,7 +52,7 @@ function Home() {
         if (error.code === 1) {
           // setLat(do something)
           // setLng(do something)
-          alert('Kindly allow location, for a more immersive experience with the app.')
+          al
           console.log(error);
         }
       }

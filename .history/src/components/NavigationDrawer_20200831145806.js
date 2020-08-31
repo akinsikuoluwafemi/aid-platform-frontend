@@ -124,6 +124,7 @@ function ResponsiveDrawer(props) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+console.log()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -178,7 +179,7 @@ function ResponsiveDrawer(props) {
 
       <span style={{ textAlign: "center" }}>
       
-        <CreateRequest lat={props.lat} lng={props.lng} />
+        <CreateRequest />
       
       </span>
     </div>

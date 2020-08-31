@@ -10,9 +10,10 @@ import Typography from "@material-ui/core/Typography";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+import { LatitudeContext } from "../LatitudeContext";
 
 
-const CreateRequest = (props) => {
+const CreateRequest = () => {
   // let { userLat, setUserLat } = useContext(LatitudeContext);
   // console.log(LatitudeContext);
 
@@ -22,8 +23,7 @@ const CreateRequest = (props) => {
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [description, setDescription] = useState("");
-  console.log(props)
-  
+
   // console.log(LatitudeContext);
 
   const handleClickOpen = () => {
@@ -46,13 +46,13 @@ const CreateRequest = (props) => {
     setDescription(e.target.value);
   };
 
-  // const handleLat = (e) => {
-  //   setLat(e.target.value);
-  // };
+  const handleLat = (e) => {
+    setLat(e.target.value);
+  };
 
-  // const handleLng = (e) => {
-  //   setLng(e.target.value);
-  // };
+  const handleLng = (e) => {
+    setLng(e.target.value);
+  };
 
   const handleSubmit = () => {
     console.log("submitted");
@@ -61,8 +61,8 @@ const CreateRequest = (props) => {
       description,
       type: requestType,
       location: {
-        lat: props.lat,
-        lng: props.lng
+        lat,
+        lng,
       },
       color: "blue",
       status: "unfufilled",
@@ -135,8 +135,8 @@ const CreateRequest = (props) => {
             id="lat"
             label="Latitude"
             type="Latitude"
-            value={props.lat === 0 ? `Kindly allow location` : props.lat}
-            // onChange={handleLat}
+            value={lat}
+            onChange={handleLat}
             //   fullWidth
           />
 
@@ -145,9 +145,9 @@ const CreateRequest = (props) => {
             margin="dense"
             id="Longitude"
             label="Longitude"
-            value={props.lng === 0 ? `Kindly allow location` : props.lng}
+            value={lng}
             type="Longitude"
-            // onChange={handleLng}
+            onChange={handleLng}
             //   fullWidth
           />
         </DialogContent>

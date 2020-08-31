@@ -135,7 +135,7 @@ const CreateRequest = (props) => {
             id="lat"
             label="Latitude"
             type="Latitude"
-            value={props.lat === 0 ? `Kindly allow location` : props.lat}
+            value={props.lat === 0 ? `Kindly allow your location`: }
             // onChange={handleLat}
             //   fullWidth
           />
@@ -145,7 +145,7 @@ const CreateRequest = (props) => {
             margin="dense"
             id="Longitude"
             label="Longitude"
-            value={props.lng === 0 ? `Kindly allow location` : props.lng}
+            value={props.lng}
             type="Longitude"
             // onChange={handleLng}
             //   fullWidth

@@ -23,7 +23,10 @@ const CreateRequest = (props) => {
   const [lng, setLng] = useState(null);
   const [description, setDescription] = useState("");
   console.log(props)
-  
+  if(props.lat === 0 || props.lng === 0 ){
+      alert('Kindly allow location, because it will be needed to maximise this app.')
+
+  }
   // console.log(LatitudeContext);
 
   const handleClickOpen = () => {
@@ -61,8 +64,8 @@ const CreateRequest = (props) => {
       description,
       type: requestType,
       location: {
-        lat: props.lat,
-        lng: props.lng
+        lat,
+        lng,
       },
       color: "blue",
       status: "unfufilled",
@@ -135,7 +138,7 @@ const CreateRequest = (props) => {
             id="lat"
             label="Latitude"
             type="Latitude"
-            value={props.lat === 0 ? `Kindly allow location` : props.lat}
+            value={props.lat}
             // onChange={handleLat}
             //   fullWidth
           />
@@ -145,7 +148,7 @@ const CreateRequest = (props) => {
             margin="dense"
             id="Longitude"
             label="Longitude"
-            value={props.lng === 0 ? `Kindly allow location` : props.lng}
+            value={props.lng}
             type="Longitude"
             // onChange={handleLng}
             //   fullWidth

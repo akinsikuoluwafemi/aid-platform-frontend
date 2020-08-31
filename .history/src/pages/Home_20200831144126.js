@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 function Home() {
   
   const [userLat, setUserLat] = useState(0)
-  const [userLng, setUserLng] = useState(0)
+  const [userLng, setUserLng] = useState(null)
   const [request, setRequest] = useState(requestData);
 
   useEffect(() => {
@@ -52,7 +52,6 @@ function Home() {
         if (error.code === 1) {
           // setLat(do something)
           // setLng(do something)
-          alert('Kindly allow location, for a more immersive experience with the app.')
           console.log(error);
         }
       }
@@ -65,12 +64,14 @@ function Home() {
     <div className={classes.root}>
       <CssBaseline />
 
-      <NavigationDrawer lat={userLat} lng={userLng} />
+      <NavigationDrawer />
+      <LatitudeContext.Provider value={{userLat,setUserLat}}>
         <main className={classes.content}>
           <div className={classes.toolbar}></div>
 
           <p>Home</p>
         </main>
+      </LatitudeContext.Provider>
     </div>
   );
 }

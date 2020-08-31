@@ -145,7 +145,7 @@ const CreateRequest = (props) => {
             margin="dense"
             id="Longitude"
             label="Longitude"
-            value={props.lng === 0 ? `Kindly allow location` : props.lng}
+            value={props.l === 0 ? `Kindly allow location` : props.lat}
             type="Longitude"
             // onChange={handleLng}
             //   fullWidth

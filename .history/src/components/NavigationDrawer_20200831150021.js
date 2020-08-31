@@ -124,6 +124,7 @@ function ResponsiveDrawer(props) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+console.log(props)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

@@ -52,7 +52,6 @@ function Home() {
         if (error.code === 1) {
           // setLat(do something)
           // setLng(do something)
-          alert('Kindly allow location, for a more immersive experience with the app.')
           console.log(error);
         }
       }
@@ -65,7 +64,7 @@ function Home() {
     <div className={classes.root}>
       <CssBaseline />
 
-      <NavigationDrawer lat={userLat} lng={userLng} />
+      <NavigationDrawer />
         <main className={classes.content}>
           <div className={classes.toolbar}></div>
 

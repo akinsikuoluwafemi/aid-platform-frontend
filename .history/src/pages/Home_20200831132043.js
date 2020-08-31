@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import "../pages/Home.scss";
 import NavigationDrawer from "../components/NavigationDrawer";
 import { requestData } from "../data";
-import { LatitudeContext } from "../LatitudeContext";
+import { LocationContext } from '../LocationContext';
 
 const drawerWidth = 200;
 
@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   
-  const [userLat, setUserLat] = useState(0)
-  const [userLng, setUserLng] = useState(0)
+  const [userLat, setUserLat] = useState(null)
+  const [userLng, setUserLng] = useState(null)
   const [request, setRequest] = useState(requestData);
 
   useEffect(() => {
@@ -45,32 +45,32 @@ function Home() {
         let { latitude, longitude } = position.coords;
         console.log(latitude, longitude)
         setUserLat(latitude)
-        setUserLng(longitude)
-
+        console.log(position);
       },
       (error) => {
         if (error.code === 1) {
           // setLat(do something)
           // setLng(do something)
-          alert('Kindly allow location, for a more immersive experience with the app.')
           console.log(error);
         }
       }
     );
   }
-  console.log(userLat,userLng)
+  
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <CssBaseline />
 
-      <NavigationDrawer lat={userLat} lng={userLng} />
+      <NavigationDrawer />
+      {/* <LocationContext.Provider value={{ userLat, setUserLat }}> */}
         <main className={classes.content}>
           <div className={classes.toolbar}></div>
 
           <p>Home</p>
         </main>
+      {/* </LocationContext.Provider> */}
     </div>
   );
 }
