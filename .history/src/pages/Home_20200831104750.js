@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   
-  const [userLat, setUserLat] = useState(null)
-  const [userLng, setUserLng] = useState(null)
+  const [latitude, setLatitude] = useState(null)
+  const [longitude, setLongitude] = useState(null)
   const [request, setRequest] = useState(requestData);
 
   useEffect(() => {
@@ -44,8 +44,8 @@ function Home() {
       (position) => {
         let { latitude, longitude } = position.coords;
 
-        // setLatitude(latitude);
-        // setLongitude(longitude);
+        setLatitude(latitude);
+        setLongitude(longitude);
         console.log(position);
       },
       (error) => {
@@ -65,7 +65,7 @@ function Home() {
       <CssBaseline />
 
       <NavigationDrawer />
-      <LocationContext.Provider value={{ userLat, setUserLat }}>
+      <LocationContext.Provider value={{ latitude, setLatitude }}>
         <main className={classes.content}>
           <div className={classes.toolbar}></div>
 

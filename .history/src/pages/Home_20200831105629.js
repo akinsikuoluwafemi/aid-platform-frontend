@@ -44,8 +44,8 @@ function Home() {
       (position) => {
         let { latitude, longitude } = position.coords;
 
-        // setLatitude(latitude);
-        // setLongitude(longitude);
+        setLatitude(latitude);
+        setLongitude(longitude);
         console.log(position);
       },
       (error) => {

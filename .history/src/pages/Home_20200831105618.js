@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 function Home() {
   
   const [userLat, setUserLat] = useState(null)
-  const [userLng, setUserLng] = useState(null)
+  const [userLng, setUserLongitude] = useState(null)
   const [request, setRequest] = useState(requestData);
 
   useEffect(() => {
@@ -44,8 +44,8 @@ function Home() {
       (position) => {
         let { latitude, longitude } = position.coords;
 
-        // setLatitude(latitude);
-        // setLongitude(longitude);
+        setLatitude(latitude);
+        setLongitude(longitude);
         console.log(position);
       },
       (error) => {

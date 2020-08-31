@@ -23,7 +23,7 @@ const CreateRequest = () => {
 
 //   let {userLat, setUserLat } = useContext(LocationContext);
 
-    console.log(LocationContext)
+    console.log(lat)
 
     
   const handleClickOpen = () => {

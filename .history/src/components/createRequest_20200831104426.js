@@ -21,9 +21,9 @@ const CreateRequest = () => {
   const [lng, setLng] = useState(null);
   const [description, setDescription] = useState("");
 
-//   let {userLat, setUserLat } = useContext(LocationContext);
+    let { lat,setLat } = useContext(LocationContext);
 
-    console.log(LocationContext)
+    console.log(lo)
 
     
   const handleClickOpen = () => {

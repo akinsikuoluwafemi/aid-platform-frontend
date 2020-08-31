@@ -72,7 +72,7 @@ function Login() {
       <NavigationDrawer />
 
       <main className={classes.content}>
-        <div className={classes.toolbar} ></div>
+        <div className={classes.toolbar} >yes</div>
 
         <section>
           <img src={HelpLogo} alt="" style={{ height: "5rem" }} />

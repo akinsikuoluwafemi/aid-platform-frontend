@@ -17,13 +17,13 @@ const CreateRequest = () => {
   const [open, setOpen] = useState(false);
   const [requestType, setRequestType] = useState({});
   const [status, setStatus] = useState("unfufilled");
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
+//   const [lat, setLat] = useState(null);
+//   const [lng, setLng] = useState(null);
   const [description, setDescription] = useState("");
 
-//   let {userLat, setUserLat } = useContext(LocationContext);
+    let { lat, setLat } = useContext(LocationContext);
 
-    console.log(LocationContext)
+    console.log(lat)
 
     
   const handleClickOpen = () => {

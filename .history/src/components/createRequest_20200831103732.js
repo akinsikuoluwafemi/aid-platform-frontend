@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -10,9 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import { LocationContext } from '../LocationContext';
-
-
+import 
 const CreateRequest = () => {
   const [open, setOpen] = useState(false);
   const [requestType, setRequestType] = useState({});
@@ -21,11 +19,6 @@ const CreateRequest = () => {
   const [lng, setLng] = useState(null);
   const [description, setDescription] = useState("");
 
-//   let {userLat, setUserLat } = useContext(LocationContext);
-
-    console.log(LocationContext)
-
-    
   const handleClickOpen = () => {
     setOpen(true);
   };

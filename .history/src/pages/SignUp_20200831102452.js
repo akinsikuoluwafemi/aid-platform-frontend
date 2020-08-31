@@ -109,7 +109,7 @@ function SignUp() {
       <NavigationDrawer />
 
       <main className={classes.content}>
-        <div className={classes.toolbar}></div>
+        <div className={classes.toolbar} >
 
         <section>
           <img src={HelpLogo} alt="" style={{ height: "5rem" }} />

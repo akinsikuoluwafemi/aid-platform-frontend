@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useCo } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -21,11 +21,6 @@ const CreateRequest = () => {
   const [lng, setLng] = useState(null);
   const [description, setDescription] = useState("");
 
-//   let {userLat, setUserLat } = useContext(LocationContext);
-
-    console.log(LocationContext)
-
-    
   const handleClickOpen = () => {
     setOpen(true);
   };
