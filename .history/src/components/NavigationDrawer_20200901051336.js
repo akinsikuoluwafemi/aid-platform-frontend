@@ -236,8 +236,8 @@ function ResponsiveDrawer(props) {
             value={role}
             onChange={handleRole}
           >
-            <MenuItem value="responder">Responder</MenuItem>
-            <MenuItem value="Requester">Requester</MenuItem>
+            {/* <MenuItem value="fulfilled">fulfilled</MenuItem> */}
+            <MenuItem value="unfulfilled">R</MenuItem>
           </Select>
 
           {/* <p>another icon</p> */}

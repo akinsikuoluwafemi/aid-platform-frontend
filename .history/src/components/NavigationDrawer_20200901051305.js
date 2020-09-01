@@ -229,15 +229,15 @@ function ResponsiveDrawer(props) {
             />
           </div> */}
 
-          <InputLabel id="demo-simple-select-label">Role</InputLabel>
+          <InputLabel id="demo-simple-select-label">Status</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={role}
-            onChange={handleRole}
+            value={status}
+            onChange={handleStatus}
           >
-            <MenuItem value="responder">Responder</MenuItem>
-            <MenuItem value="Requester">Requester</MenuItem>
+            {/* <MenuItem value="fulfilled">fulfilled</MenuItem> */}
+            <MenuItem value="unfulfilled">unfulfilled</MenuItem>
           </Select>
 
           {/* <p>another icon</p> */}

@@ -198,6 +198,7 @@ function ResponsiveDrawer(props) {
 
   return (
     <div className={classes.root}>
+
       <CssBaseline />
 
       <AppBar position="fixed" className={classes.appBar}>
@@ -228,17 +229,6 @@ function ResponsiveDrawer(props) {
               inputProps={{ "aria-label": "search" }}
             />
           </div> */}
-
-          <InputLabel id="demo-simple-select-label">Role</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={role}
-            onChange={handleRole}
-          >
-            <MenuItem value="responder">Responder</MenuItem>
-            <MenuItem value="Requester">Requester</MenuItem>
-          </Select>
 
           {/* <p>another icon</p> */}
           {/* <p>another icon</p> */}
@@ -276,6 +266,7 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
+      
     </div>
   );
 }
