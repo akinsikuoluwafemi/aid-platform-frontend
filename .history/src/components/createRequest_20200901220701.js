@@ -36,7 +36,7 @@ const CreateRequest = (props) => {
   let requestArr = getInitialMode();
   console.log(requestArr);
 
-  // const [savedArr, setSavedArr] = useState(requestArr)
+  const [savedArr, setSavedArr] = useState(requestArr)
   
   // console.log(LatitudeContext);
 
@@ -94,7 +94,7 @@ const CreateRequest = (props) => {
 
 
   return (
-    // <RequestContext.provider value={{ savedArr, setSavedArr }}>
+    <RequestContext.provider>
       <form>
         {/* variant="disabled" */}
         <Button variant="contained" color="primary" onClick={handleClickOpen}>
@@ -181,7 +181,7 @@ const CreateRequest = (props) => {
           </DialogActions>
         </Dialog>
       </form>
-    // </RequestContext.provider>
+    </RequestContext.provider>
   );
 };
 

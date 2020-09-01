@@ -36,7 +36,7 @@ const CreateRequest = (props) => {
   let requestArr = getInitialMode();
   console.log(requestArr);
 
-  // const [savedArr, setSavedArr] = useState(requestArr)
+  const [savedArr, setSavedArr] = useState(requestArr)
   
   // console.log(LatitudeContext);
 
