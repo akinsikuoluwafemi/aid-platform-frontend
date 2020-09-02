@@ -7,7 +7,7 @@ import NavigationDrawer from "../components/NavigationDrawer";
 import { requestData } from "../data";
 import { LatitudeContext, LongitudeContext } from "../LocationContext";
 
-import { Gmaps } from '../components/Gmaps';
+import {Gmaps from '../components/Gmaps';
 
 
 const drawerWidth = 200;

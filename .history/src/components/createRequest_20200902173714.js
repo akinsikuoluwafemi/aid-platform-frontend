@@ -20,7 +20,7 @@ const CreateRequest = (props) => {
   const [open, setOpen] = useState(false);
   const [requestType, setRequestType] = useState({});
   const [status, setStatus] = useState("unfufilled");
-  const [request, setRequest] = useState(JSON.parse(localStorage.getItem('request') || requestData));
+  const [request, setRequest] = useState(JSON.parse(requ
 
   // function getInitialMode(){
   //   const savedMode = JSON.parse(localStorage.getItem('request'))
@@ -33,8 +33,8 @@ const CreateRequest = (props) => {
   // const [lng, setLng] = useState(null);
   const [description, setDescription] = useState("");
   console.log(props)
-  // let requestArr = getInitialMode();
-  // console.log(requestArr);
+  let requestArr = getInitialMode();
+  console.log(requestArr);
 
   // const [savedArr, setSavedArr] = useState(requestArr)
   
@@ -94,7 +94,7 @@ const CreateRequest = (props) => {
 
 
   return (
-    <RequestContext.Provider value="hello">
+    // <RequestContext.provider value={{ savedArr, setSavedArr }}>
       <form>
         {/* variant="disabled" */}
         <Button variant="contained" color="primary" onClick={handleClickOpen}>
@@ -181,7 +181,7 @@ const CreateRequest = (props) => {
           </DialogActions>
         </Dialog>
       </form>
-    </RequestContext.Provider>
+    // </RequestContext.provider>
   );
 };
 

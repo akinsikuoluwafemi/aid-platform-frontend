@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {CompouseEffect, useState, useContext} from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
 import { LatitudeContext, LongitudeContext, RequestContext } from '../LocationContext';
 
@@ -6,24 +6,17 @@ import { LatitudeContext, LongitudeContext, RequestContext } from '../LocationCo
 
 
 
-export const Map = () => {
+class Map extends Component {
  
 
 
-    const { userLat } = useContext(LatitudeContext);
-    const {userLng} = useContext(LongitudeContext);
-    const  request  = useContext(RequestContext)
+    // const { userLat } = useContext(LatitudeContext);
+    // const {userLng} = useContext(LongitudeContext);
+    // const { open } = useContext(RequestContext)
     // console.log(request)
-    console.log(request)
+    // console.log(RequestContext)
  
-    return (
-    <GoogleMap
-      defaultZoom={10}
-            defaultCenter={{ lat: userLat, lng: userLng }}
-            
-    />
-        
-  );
+    
 }
 
 
@@ -32,9 +25,8 @@ const WrappedMap = withScriptjs(withGoogleMap(Map))
 
 
 
-export const Gmaps = ({lat,lng}) => {
-  console.log(lat, lng)
- 
+const Gmaps = ({lat,lng}) => {
+    console.log(lat,lng)
     return (
       <>
         {/* <Map/> */}
@@ -50,4 +42,4 @@ export const Gmaps = ({lat,lng}) => {
     );
 }
 
-// export default Gmaps;
+export default Gmaps;

@@ -34,7 +34,9 @@ const WrappedMap = withScriptjs(withGoogleMap(Map))
 
 export const Gmaps = ({lat,lng}) => {
   console.log(lat, lng)
- 
+  const request = useContext(RequestContext);
+  // console.log(request)
+  console.log(request);
     return (
       <>
         {/* <Map/> */}

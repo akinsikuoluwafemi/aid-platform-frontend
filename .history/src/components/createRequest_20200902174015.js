@@ -20,7 +20,7 @@ const CreateRequest = (props) => {
   const [open, setOpen] = useState(false);
   const [requestType, setRequestType] = useState({});
   const [status, setStatus] = useState("unfufilled");
-  const [request, setRequest] = useState(JSON.parse(localStorage.getItem('request') || requestData));
+  const [request, setRequest] = useState(requestData);
 
   // function getInitialMode(){
   //   const savedMode = JSON.parse(localStorage.getItem('request'))
@@ -181,7 +181,7 @@ const CreateRequest = (props) => {
           </DialogActions>
         </Dialog>
       </form>
-    </RequestContext.Provider>
+    </RequestContext.provider>
   );
 };
 

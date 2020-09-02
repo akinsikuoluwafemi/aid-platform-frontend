@@ -6,15 +6,14 @@ import { LatitudeContext, LongitudeContext, RequestContext } from '../LocationCo
 
 
 
-export const Map = () => {
+function Map() {
  
 
 
     const { userLat } = useContext(LatitudeContext);
     const {userLng} = useContext(LongitudeContext);
-    const  request  = useContext(RequestContext)
+    // const { request } = useContext(RequestContext)
     // console.log(request)
-    console.log(request)
  
     return (
     <GoogleMap
@@ -32,9 +31,8 @@ const WrappedMap = withScriptjs(withGoogleMap(Map))
 
 
 
-export const Gmaps = ({lat,lng}) => {
-  console.log(lat, lng)
- 
+const Gmaps = ({lat,lng}) => {
+    console.log(lat,lng)
     return (
       <>
         {/* <Map/> */}
@@ -50,4 +48,4 @@ export const Gmaps = ({lat,lng}) => {
     );
 }
 
-// export default Gmaps;
+export default Gmaps;
