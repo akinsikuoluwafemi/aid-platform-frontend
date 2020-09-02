@@ -34,17 +34,17 @@ const WrappedMap = withScriptjs(withGoogleMap(Map))
 const Gmaps = ({lat,lng}) => {
     console.log(lat,lng)
     return (
-      <>
-        {/* <Map/> */}
-        <div>
-          <WrappedMap
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBniFhD5gyPyOrEm212cVIAYVythPk2JcE`}
-            loadingElement={<div style={{ height: "100%" }} />}
-            containerElement={<div style={{ height: `100vh` }} />}
-            mapElement={<div style={{ height: `100vh` }} />}
-          />
-        </div>
-      </>
+        <>
+            {/* <Map/> */}
+            <div>
+                <WrappedMap
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBniFhD5gyPyOrEm212cVIAYVythPk2JcE`}
+                loadingElement={<div style={{ height: "100%" }} />}
+                containerElement={<div style={{ height: `400px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+                />
+            </div>
+        </>
     );
 }
 

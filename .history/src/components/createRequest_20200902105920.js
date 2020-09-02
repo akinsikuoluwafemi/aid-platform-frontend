@@ -270,7 +270,7 @@ class CreateRequest extends Component {
       type: this.state.requestType,
       location: {
         lat: this.props.lat + 20.011,
-        lng: this.props.lng + 18.0022,
+        lng: this.props.lng + 12.0022,
       },
       color: "blue",
       status: "unfufilled",

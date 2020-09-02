@@ -194,24 +194,23 @@ class CreateRequest extends Component {
   // let { userLat, setUserLat } = useContext(LatitudeContext);
   // console.log(LatitudeContext);
 
-  // getInitialMode = () => {
-  //   return savedMode ;
-  // };
-
   state = {
     open: false,
     requestType: {},
-    status: "unfufilled",
-    request: JSON.parse(localStorage.getItem("request")) || requestData,
-    description: "",
-  };
-
-    
+    status: 'unfufilled',
+    request: this.getInitialMode(),
+    description: '',
+  }
 
   // const [open, setOpen] = useState(false);
   // const [requestType, setRequestType] = useState({});
   // const [status, setStatus] = useState("unfufilled");
   // const [request, setRequest] = useState(getInitialMode());
+
+   getInitialMode = () =>  {
+    const savedMode = JSON.parse(localStorage.getItem("request"));
+    return savedMode || requestData;
+  }
 
   // console.log(this.state.request.length);
 
@@ -219,39 +218,42 @@ class CreateRequest extends Component {
   // const [lng, setLng] = useState(null);
   // const [description, setDescription] = useState("");
   // console.log(props);
+  // let requestArr = this.getInitialMode();
+  // console.log(requestArr);
 
   // const [savedArr, setSavedArr] = useState(requestArr)
 
   // console.log(LatitudeContext);
 
-  handleClickOpen = () => {
-    this.setState({
-      open: true,
-    });
+   handleClickOpen = () => {
+     this.setState({
+       open: true
+     })
   };
 
-  handleClose = () => {
-    this.setState({
-      open: false,
-    });
+   handleClose = () => {
+     this.setState({
+       open: false
+     })
   };
 
-  handleType = (e) => {
-    this.setState({
-      requestType: e.target.value,
-    });
+   handleType = (e) => {
+     this.setState({
+       requestType: e.target.value,
+     });
   };
 
-  handleStatus = (e) => {
-    this.setState({
-      status: e.target.value,
-    });
+   handleStatus = (e) => {
+     this.setState({
+       status: e.target.value,
+     });
   };
 
-  handleDescription = (e) => {
-    this.setState({
-      description: e.target.value,
-    });
+   handleDescription = (e) => {
+     setDescription(e.target.value);
+     this.setState({
+       descri
+     })
   };
 
   // const handleLat = (e) => {
@@ -262,136 +264,128 @@ class CreateRequest extends Component {
   //   setLng(e.target.value);
   // };
 
-  handleSubmit = () => {
+
+   handleSubmit = () => {
     console.log("submitted");
     let newRequest = {
       id: 5,
       description: this.state.description,
       type: this.state.requestType,
       location: {
-        lat: this.props.lat + 20.011,
-        lng: this.props.lng + 18.0022,
+        lat: this.props.lat + 10.0,
+        lng: this.props.lng + 12.0022,
       },
       color: "blue",
       status: "unfufilled",
       responders: [],
       requester: "user.first_name",
     };
-    let tempRequest = [...this.state.request, newRequest];
-    this.setState({
-      request: tempRequest
-    });
+     let tempRequest = [...this.state.request, newRequest];
+     this.setState({
+       request: tempRequest,
+     });
     localStorage.setItem("request", JSON.stringify(tempRequest));
     console.log(this.state.request);
 
-    this.setState({
-      open: false,
-    });
+     this.setState({
+       open: false
+     })
   };
 
-  render() {
-    // let requestArr = this.getInitialMode();
-    // console.log(requestArr);
-    console.log(this.state.request);
+  render(){
     return (
-      // <RequestContext.provider value={{ savedArr, setSavedArr }}>
-      <form>
-        {/* variant="disabled" */}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={this.handleClickOpen}
-        >
-          Open Request
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Create a request</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              {/* If up to 5 responders have clicked on this request it will
+    // <RequestContext.provider value={{ savedArr, setSavedArr }}>
+    <form>
+      {/* variant="disabled" */}
+      <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
+        Open Request
+      </Button>
+      <Dialog
+        open={open}
+        onClose={this.handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Create a request</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {/* If up to 5 responders have clicked on this request it will
               automatically be set to fulfilled. If a responder fails to fulfill
               it after 24hrs, the requester can republish it. */}
-              Create a request. If after 24 hrs, your request has not been
-              fulfilled you can republish it, thanks alot.{" "}
-              <strong>PS: You have to fill in your location</strong>.
-            </DialogContentText>
+            Create a request. If after 24 hrs, your request has not been
+            fulfilled you can republish it, thanks alot.{" "}
+            <strong>PS: You have to fill in your location</strong>.
+          </DialogContentText>
 
-            <InputLabel id="demo-simple-select-label">Type</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={this.state.requestType}
-              onChange={this.handleType}
-            >
-              <MenuItem value="One Time Task">One Time Task</MenuItem>
-              <MenuItem value="Material Needed">Material Needed</MenuItem>
-            </Select>
+          <InputLabel id="demo-simple-select-label">Type</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={this.state.requestType}
+            onChange={this.handleType}
+          >
+            <MenuItem value="One Time Task">One Time Task</MenuItem>
+            <MenuItem value="Material Needed">Material Needed</MenuItem>
+          </Select>
 
-            <InputLabel id="demo-simple-select-label">Status</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={this.state.status}
-              onChange={this.handleStatus}
-            >
-              {/* <MenuItem value="fulfilled">fulfilled</MenuItem> */}
-              <MenuItem value="unfulfilled">unfulfilled</MenuItem>
-            </Select>
+          <InputLabel id="demo-simple-select-label">Status</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={this.state.status}
+            onChange={this.handleStatus}
+          >
+            {/* <MenuItem value="fulfilled">fulfilled</MenuItem> */}
+            <MenuItem value="unfulfilled">unfulfilled</MenuItem>
+          </Select>
 
-            <TextField
-              autoFocus
-              margin="dense"
-              id="description"
-              label="Description"
-              type="description"
-              fullWidth
-              onChange={this.handleDescription}
-              value={this.state.description}
-            />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="description"
+            label="Description"
+            type="description"
+            fullWidth
+            onChange={this.handleDescription}
+            value={this.state.description}
+          />
 
-            <TextField
-              autoFocus
-              margin="dense"
-              id="lat"
-              label="Latitude"
-              type="Latitude"
-              value={
-                this.props.lat === 0 ? `Kindly allow location` : this.props.lat
-              }
-              // onChange={handleLat}
-              //   fullWidth
-            />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="lat"
+            label="Latitude"
+            type="Latitude"
+            value={this.props.lat === 0 ? `Kindly allow location` : this.props.lat}
+            // onChange={handleLat}
+            //   fullWidth
+          />
 
-            <TextField
-              autoFocus
-              margin="dense"
-              id="Longitude"
-              label="Longitude"
-              value={
-                this.props.lng === 0 ? `Kindly allow location` : this.props.lng
-              }
-              type="Longitude"
-              // onChange={handleLng}
-              //   fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={this.handleSubmit} color="primary">
-              Create
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </form>
-      // </RequestContext.provider>
-    );
+          <TextField
+            autoFocus
+            margin="dense"
+            id="Longitude"
+            label="Longitude"
+            value={this.props.lng === 0 ? `Kindly allow location` : this.props.lng}
+            type="Longitude"
+            // onChange={handleLng}
+            //   fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={this.handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={this.handleSubmit} color="primary">
+            Create
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </form>
+    // </RequestContext.provider>
+  );
   }
+
+  
 };
 
 export default CreateRequest;

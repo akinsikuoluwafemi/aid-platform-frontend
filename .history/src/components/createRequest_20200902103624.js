@@ -194,19 +194,18 @@ class CreateRequest extends Component {
   // let { userLat, setUserLat } = useContext(LatitudeContext);
   // console.log(LatitudeContext);
 
-  // getInitialMode = () => {
-  //   return savedMode ;
-  // };
+  getInitialMode = () => {
+    const savedMode = JSON.parse(localStorage.getItem("request"));
+    return savedMode || requestData;
+  };
 
   state = {
     open: false,
     requestType: {},
     status: "unfufilled",
-    request: JSON.parse(localStorage.getItem("request")) || requestData,
+    request: this.requestArr,
     description: "",
   };
-
-    
 
   // const [open, setOpen] = useState(false);
   // const [requestType, setRequestType] = useState({});
@@ -269,8 +268,8 @@ class CreateRequest extends Component {
       description: this.state.description,
       type: this.state.requestType,
       location: {
-        lat: this.props.lat + 20.011,
-        lng: this.props.lng + 18.0022,
+        lat: this.props.lat + 10.0,
+        lng: this.props.lng + 12.0022,
       },
       color: "blue",
       status: "unfufilled",
@@ -279,7 +278,7 @@ class CreateRequest extends Component {
     };
     let tempRequest = [...this.state.request, newRequest];
     this.setState({
-      request: tempRequest
+      request: tempRequest,
     });
     localStorage.setItem("request", JSON.stringify(tempRequest));
     console.log(this.state.request);
@@ -290,9 +289,9 @@ class CreateRequest extends Component {
   };
 
   render() {
-    // let requestArr = this.getInitialMode();
-    // console.log(requestArr);
-    console.log(this.state.request);
+    let requestArr = this.getInitialMode();
+    console.log(requestArr);
+    console.log(this.state.request)
     return (
       // <RequestContext.provider value={{ savedArr, setSavedArr }}>
       <form>

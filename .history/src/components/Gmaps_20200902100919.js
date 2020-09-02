@@ -41,7 +41,7 @@ const Gmaps = ({lat,lng}) => {
             googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBniFhD5gyPyOrEm212cVIAYVythPk2JcE`}
             loadingElement={<div style={{ height: "100%" }} />}
             containerElement={<div style={{ height: `100vh` }} />}
-            mapElement={<div style={{ height: `100vh` }} />}
+            mapElement={<div style={{ height: `400px` }} />}
           />
         </div>
       </>

@@ -195,18 +195,17 @@ class CreateRequest extends Component {
   // console.log(LatitudeContext);
 
   // getInitialMode = () => {
-  //   return savedMode ;
+    const savedMode = JSON.parse(localStorage.getItem("request"));
+  //   return savedMode || requestData;
   // };
 
   state = {
     open: false,
     requestType: {},
     status: "unfufilled",
-    request: JSON.parse(localStorage.getItem("request")) || requestData,
+    request: requestData,
     description: "",
   };
-
-    
 
   // const [open, setOpen] = useState(false);
   // const [requestType, setRequestType] = useState({});
@@ -269,8 +268,8 @@ class CreateRequest extends Component {
       description: this.state.description,
       type: this.state.requestType,
       location: {
-        lat: this.props.lat + 20.011,
-        lng: this.props.lng + 18.0022,
+        lat: this.props.lat + 10.0,
+        lng: this.props.lng + 12.0022,
       },
       color: "blue",
       status: "unfufilled",
