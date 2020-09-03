@@ -77,22 +77,17 @@ export const Map = () => {
             }}
           />
         ))} */}
-        
-          {/* <InfoWindow
-            position={{
+        {position && (
+          <InfoWindow
+            position= {{
               lat: parseFloat(position.lat),
               lng: parseFloat(position.lng)
-          }}
-          onCloseClick={() => {
-            console.log('closed')
-          }}
-        
-        >
+            }
           
-          
+          >
             <div>Park details</div>
-          </InfoWindow>  */}
-        
+          </InfoWindow> 
+        )}
 
        
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
+import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import { LatitudeContext, LongitudeContext, RequestContext } from '../LocationContext';
 import { requestData } from '../data';
 import * as parksData from "../skateboard-parks.json";
@@ -9,46 +9,30 @@ let data = JSON.parse(localStorage.getItem("request")) || requestData;
 console.log(data)
 
 let myJsonData = JSON.stringify(data)
-console.log(myJsonData)
+// console.log(myJsonData)
 
 export const Map = () => {
  
   useEffect(() => {
         {
-           {data.map(item => {
-             console.log(item.location.lat, item.location.lng)
-           })} 
+           {myJsonData.map((item) => {
+             console.log(item.location.lat, item.location.lng);
+           });} 
         }
     
   },[])
 
     const { userLat } = useContext(LatitudeContext);
     const {userLng} = useContext(LongitudeContext);
-  const [position, setPosition] = useState({
-    lat: userLat,
-    lng: userLng
-    })
-  
-  const DragMarker = (e) => {
-    console.log('dragging', e)
-    console.log(e.latLng.lat())
-    console.log(e.latLng.lng())
-    setPosition({
-      lat: e.latLng.lat(),
-      lng: e.latLng.lng()
-    })
-
-  }
-  console.log(position)
+    const  request  = useContext(RequestContext)
+    // console.log(request)
+    console.log(request)
  
     return (
       <GoogleMap
         defaultZoom={10}
-        defaultCenter={{
-          lat: parseFloat(position.lat),
-          lng: parseFloat(position.lng)
-        }}
-        // defaultCenter={{ lat: 45.42042, lng: -75.69243 }}
+        defaultCenter={{ lat: userLat, lng: userLng }}
+        defaultCenter={{ lat: 45.42042, lng: -75.69243 }}
       >
         {/* {myJsonData.map((item) => (
           <Marker key={item.id}
@@ -58,7 +42,7 @@ export const Map = () => {
             }} />
         ))} */}
 
-        {/* {parksData.features.map((park) => (
+        {parksData.features.map((park) => (
           <Marker
             key={park.properties.PARK_ID}
             position={{
@@ -66,42 +50,7 @@ export const Map = () => {
               lng: park.geometry.coordinates[0],
             }}
           />
-        ))} */}
-
-        {/* {parksData.features.map((park) => (
-          <Marker
-            key={park.properties.PARK_ID}
-            position={{
-              lat: park.geometry.coordinates[1],
-              lng: park.geometry.coordinates[0],
-            }}
-          />
-        ))} */}
-        
-          {/* <InfoWindow
-            position={{
-              lat: parseFloat(position.lat),
-              lng: parseFloat(position.lng)
-          }}
-          onCloseClick={() => {
-            console.log('closed')
-          }}
-        
-        >
-          
-          
-            <div>Park details</div>
-          </InfoWindow>  */}
-        
-
-       
-
-        <Marker
-          position={position}
-          draggable={true}
-          onDragEnd={DragMarker}
-          onClick={() => console.log("marker was clicked")}
-        />
+        ))}
       </GoogleMap>
     );
 }

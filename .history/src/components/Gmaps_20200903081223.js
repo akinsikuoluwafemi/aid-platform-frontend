@@ -78,7 +78,7 @@ export const Map = () => {
           />
         ))} */}
         
-          {/* <InfoWindow
+          <InfoWindow
             position={{
               lat: parseFloat(position.lat),
               lng: parseFloat(position.lng)
@@ -91,7 +91,7 @@ export const Map = () => {
           
           
             <div>Park details</div>
-          </InfoWindow>  */}
+          </InfoWindow> 
         
 
        

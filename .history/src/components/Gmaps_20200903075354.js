@@ -46,7 +46,7 @@ export const Map = () => {
         defaultZoom={10}
         defaultCenter={{
           lat: parseFloat(position.lat),
-          lng: parseFloat(position.lng)
+          lng: parseFloat(position.lng),
         }}
         // defaultCenter={{ lat: 45.42042, lng: -75.69243 }}
       >
@@ -77,22 +77,11 @@ export const Map = () => {
             }}
           />
         ))} */}
-        
-          {/* <InfoWindow
-            position={{
-              lat: parseFloat(position.lat),
-              lng: parseFloat(position.lng)
-          }}
-          onCloseClick={() => {
-            console.log('closed')
-          }}
-        
-        >
-          
-          
+        {position && (
+          <InfoWindow>
             <div>Park details</div>
-          </InfoWindow>  */}
-        
+          </InfoWindow> 
+        )}
 
        
 

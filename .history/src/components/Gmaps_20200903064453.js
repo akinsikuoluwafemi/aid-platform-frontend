@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
+import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import { LatitudeContext, LongitudeContext, RequestContext } from '../LocationContext';
 import { requestData } from '../data';
 import * as parksData from "../skateboard-parks.json";
@@ -24,30 +24,14 @@ export const Map = () => {
 
     const { userLat } = useContext(LatitudeContext);
     const {userLng} = useContext(LongitudeContext);
-  const [position, setPosition] = useState({
-    lat: userLat,
-    lng: userLng
-    })
-  
-  const DragMarker = (e) => {
-    console.log('dragging', e)
-    console.log(e.latLng.lat())
-    console.log(e.latLng.lng())
-    setPosition({
-      lat: e.latLng.lat(),
-      lng: e.latLng.lng()
-    })
-
-  }
-  console.log(position)
+    const  request  = useContext(RequestContext)
+    // console.log(request)
+    console.log(request)
  
     return (
       <GoogleMap
         defaultZoom={10}
-        defaultCenter={{
-          lat: parseFloat(position.lat),
-          lng: parseFloat(position.lng)
-        }}
+        defaultCenter={{ lat: parseFloat(userLat), lng: parseFloat(userLng }}
         // defaultCenter={{ lat: 45.42042, lng: -75.69243 }}
       >
         {/* {myJsonData.map((item) => (
@@ -77,31 +61,7 @@ export const Map = () => {
             }}
           />
         ))} */}
-        
-          {/* <InfoWindow
-            position={{
-              lat: parseFloat(position.lat),
-              lng: parseFloat(position.lng)
-          }}
-          onCloseClick={() => {
-            console.log('closed')
-          }}
-        
-        >
-          
-          
-            <div>Park details</div>
-          </InfoWindow>  */}
-        
-
-       
-
-        <Marker
-          position={position}
-          draggable={true}
-          onDragEnd={DragMarker}
-          onClick={() => console.log("marker was clicked")}
-        />
+        <Marker position={{lat: userLat, lng: userLng}} />
       </GoogleMap>
     );
 }

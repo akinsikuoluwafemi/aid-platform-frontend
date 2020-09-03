@@ -44,10 +44,8 @@ export const Map = () => {
     return (
       <GoogleMap
         defaultZoom={10}
-        defaultCenter={{
-          lat: parseFloat(position.lat),
-          lng: parseFloat(position.lng)
-        }}
+        
+        defaultCenter={{ lat: parseFloat(position.lat), lng: parseFloat(position.lng) }}
         // defaultCenter={{ lat: 45.42042, lng: -75.69243 }}
       >
         {/* {myJsonData.map((item) => (
@@ -77,31 +75,33 @@ export const Map = () => {
             }}
           />
         ))} */}
-        
-          {/* <InfoWindow
-            position={{
-              lat: parseFloat(position.lat),
-              lng: parseFloat(position.lng)
-          }}
-          onCloseClick={() => {
-            console.log('closed')
-          }}
-        
-        >
-          
-          
-            <div>Park details</div>
-          </InfoWindow>  */}
-        
 
-       
+
+
+
+
+
+
+
+
+
+
+
+
 
         <Marker
-          position={position}
+          position={position}  
           draggable={true}
           onDragEnd={DragMarker}
-          onClick={() => console.log("marker was clicked")}
+          onClick={() => console.log('marker was clicked')}
+        
         />
+
+        <InfoWindow>
+          <div>Park details</div>
+        </InfoWindow>
+
+
       </GoogleMap>
     );
 }
